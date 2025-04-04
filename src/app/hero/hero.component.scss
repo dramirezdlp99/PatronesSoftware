@@ -1,0 +1,161 @@
+.hero-container {
+  text-align: center;
+  font-family: 'Times New Roman', sans-serif;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 10px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    transition: all 0.5s ease;
+    border-radius: 8px;
+
+    &.armor-active {
+      border: 5px solid gold;
+      box-shadow: 0 0 15px 5px #f0131e;
+    }
+
+    &.nano-active {
+      border: 5px solid #ff1414;
+      box-shadow: 0 0 15px 5px #ffee00;
+    }
+
+    &.spiderman-active {
+      border: 5px solid blue;
+      box-shadow: 0 0 15px 5px red;
+    }
+
+    &.thor-active {
+      border: 5px solid yellow;
+      box-shadow: 0 0 15px 5px gray;
+    }
+  }
+
+  .controls {
+    margin: 20px 0;
+
+    button {
+      background: gray;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s, background 0.3s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      &.ironman {
+        background: red;
+        color: black;
+      }
+
+      &.ironman.secondary {
+        background: gold;
+        color: black;
+      }
+
+      &.spiderman {
+        background: blue;
+        color: black;
+      }
+
+      &.spiderman.secondary {
+        background: red;
+        color: black;
+      }
+
+      &.thor {
+        background: yellow;
+        color: black;
+      }
+
+      &.thor.secondary {
+        background: #444;
+        color: black;
+      }
+
+      &.reset {
+        background: #999;
+        color: white;
+      }
+    }
+  }
+
+  .hero-selector {
+    background: #f0131e;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .abilities {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      color: #f0131e;
+      margin-top: 0;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+      }
+    }
+
+    // Estilos dinámicos para basePower
+    p.tecnología-avanzada {
+      color: #ff9800;
+      font-weight: bold;
+      animation: pulse 1s infinite;
+    }
+
+    p.arácnido-mejorado {
+      color: #2196f3;
+      font-weight: bold;
+      animation: blink 1s steps(2, start) infinite;
+    }
+
+    p.dios-del-trueno {
+      color: #9c27b0;
+      font-weight: bold;
+      animation: flash 1.5s ease-in-out infinite;
+    }
+  }
+
+  // Animaciones
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @keyframes flash {
+    0% { color: #9c27b0; }
+    50% { color: #ffffff; }
+    100% { color: #9c27b0; }
+  }
+}

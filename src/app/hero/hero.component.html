@@ -1,0 +1,56 @@
+<div class="hero-container">
+  <!-- Hero Selector -->
+  <select class="hero-selector" (change)="changeHero($event)">
+    <option *ngFor="let h of heroes" [value]="h.name">{{ h.name }}</option>
+  </select>
+
+  <!-- Hero Image -->
+  <img 
+    [src]="hero.currentImage" 
+    alt="Hero Image"
+    [ngClass]="{
+      'armor-active': hero.abilities.includes('Classical armor'),
+      'nano-active': hero.abilities.includes('Nanotechnology Armor'),
+      'spiderman-active': hero.name === 'Spider-Man',
+      'thor-active': hero.name === 'Thor'
+    }"
+  />
+
+  <!-- Ability Controls -->
+  <div class="controls">
+    <button *ngIf="hero.name === 'Iron Man'" (click)="applyUpgrade('ARMOR')" class="ironman">
+      Classical Armor
+    </button>
+    <button *ngIf="hero.name === 'Iron Man'" (click)="applyUpgrade('NANO')" class="ironman secondary">
+      Nanotechnology Armor
+    </button>
+
+    <button *ngIf="hero.name === 'Spider-Man'" (click)="applyUpgrade('SENSE')" class="spiderman">
+      Black Suit
+    </button>
+    <button *ngIf="hero.name === 'Spider-Man'" (click)="applyUpgrade('IRON')" class="spiderman secondary">
+      Iron Spider Armor
+    </button>
+
+    <button *ngIf="hero.name === 'Thor'" (click)="applyUpgrade('THUNDER')" class="thor">
+      Thunder Mode
+    </button>
+    <button *ngIf="hero.name === 'Thor'" (click)="applyUpgrade('STORMBREAKER')" class="thor secondary">
+      Stormbreaker
+    </button>
+
+    <button class="reset" (click)="resetHero()">Reset</button>
+  </div>
+
+  <!-- Hero Information -->
+  <div class="abilities">
+    <h3>{{ hero.name }}</h3>
+    <p [ngClass]="getBasePowerClass()">
+      <strong>Base Power:</strong> {{ hero.basePower }}
+    </p>
+    <h4>Abilities:</h4>
+    <ul>
+      <li *ngFor="let ability of hero.abilities">{{ ability }}</li>
+    </ul>
+  </div>
+</div>
